@@ -10,6 +10,7 @@ import Login from './components/Login/Login';
 import Book from './components/Book/Book';
 import Header from './components/Header/Header';
 import PrivateRoute from './components/PrivateRoute/PrivateRoute';
+import { Button } from '@material-ui/core';
 
 export const UserContext = createContext();
 
@@ -17,7 +18,7 @@ function App() {
   const [loggedInUser, setLoggedInUser] = useState({});
   return (
     <UserContext.Provider value={[loggedInUser, setLoggedInUser]}>
-      <p>Name: {loggedInUser.name}</p>
+      <p>Name: {loggedInUser.name}<Button color="primary" onClick={() => window.location.reload()}>Signout</Button></p>
       <Router>
           <Header/>
           <Switch>
