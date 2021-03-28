@@ -21,28 +21,28 @@ const Book = () => {
     });
 
     const handleCheckInDate = (date) => {
-        const newDates = {...selectedDate}
+        const newDates = { ...selectedDate }
         newDates.checkIn = date;
         setSelectedDate(newDates);
     };
 
     const handleCheckOutDate = (date) => {
-        const newDates = {...selectedDate}
+        const newDates = { ...selectedDate }
         newDates.checkOut = date;
         setSelectedDate(newDates);
     };
 
     const handleBooking = () => {
-        const newBooking = {...loggedInUser, ...selectedDate};
+        const newBooking = { ...loggedInUser, ...selectedDate };
         fetch('http://localhost:4200/addBooking', {
             method: 'POST',
-            headers: {'content-type': 'application/json'},
+            headers: { 'content-type': 'application/json' },
             body: JSON.stringify(newBooking)
         })
-        .then(res => res.json())
-        .then(data => {
-            console.log(data);
-        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+            })
     }
     const { bedType } = useParams();
     return (

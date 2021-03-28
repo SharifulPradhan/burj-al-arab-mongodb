@@ -1,4 +1,4 @@
-import React, {useContext, useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { UserContext } from '../../App';
 const Bookings = () => {
   const [bookings, setBookings] = useState([]);
@@ -9,11 +9,11 @@ const Bookings = () => {
       method: 'GET',
       headers: {
         contentType: 'application/json',
-        authorization: `Bearer ${sessionStorage.getItem('idtoken')}`
+        authorization: `c ${sessionStorage.getItem('idtoken')}`
       }
     })
-    .then(res => res.json())
-    .then(data => setBookings(data));
+      .then(res => res.json())
+      .then(data => setBookings(data));
   }, [loggedInUser.email])
   return (
     <div>
